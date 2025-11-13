@@ -1,0 +1,75 @@
+/* -----------------------------
+   기본 레이아웃
+----------------------------- */
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/* -----------------------------
+   지도 컨테이너 및 SVG 오버레이
+----------------------------- */
+#map {
+  position: relative;   /* SVG가 map 위에 오버레이 되도록 기준 컨테이너 */
+  width: 100%;
+  height: 500px;        /* 필요에 따라 조정 */
+}
+
+#map svg,
+#stations-layer {
+  position: absolute;   /* 맵 위에 위치 */
+  top: 0;
+  left: 0;
+  width: 100%;          
+  height: 100%;
+  pointer-events: none; /* 지도 상호작용 가능 */
+  z-index: 1;           /* 지도 위에 렌더링 */
+}
+
+/* -----------------------------
+   SVG 마커(circle)
+----------------------------- */
+.stations-layer circle {
+  fill: steelblue;
+  stroke: white;
+  stroke-width: 1px;
+  fill-opacity: 0.6;    /* 겹쳐도 패턴 보이도록 */
+  pointer-events: auto; /* tooltip 보이도록 */
+}
+
+/* -----------------------------
+   헤더 및 슬라이더 UI
+----------------------------- */
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  margin-bottom: 1em;
+}
+
+label {
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+#time-display {
+  display: block;
+  font-weight: bold;
+}
+
+#any-time-text {
+  display: block;
+  font-style: italic;
+  color: #999;
+}
